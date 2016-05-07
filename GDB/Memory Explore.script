@@ -1,0 +1,45 @@
+Script started on Sat 07 May 2016 12:44:03 AM PDT
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Memory Explore...done.
+[36m(gdb) [0mlist 1,7
+1	int main(void) {
+2	   char greeting[12] = "I am Groot\n";
+3	   int num1 = 32, num2 = 0x4301;
+4	   int *ptr = &num1;
+5	   int num3 = *ptr + num2;
+6	   return 0;
+7	}
+[36m(gdb) [0mbreak 6
+Breakpoint 1 at 0x40052a: file Memory Explore.c, line 6.
+[36m(gdb) [0mrun
+Starting program: /home/patrick.hawks1016/B13/Memory Explore 
+
+Breakpoint 1, main () at Memory Explore.c:6
+6	   return 0;
+[36m(gdb) [0mprint &ptr
+$1 = (int **) 0x7fffffffe500
+[36m(gdb) [0mprint &num2
+$2 = (int *) 0x7fffffffe50c
+[36m(gdb) [0mx/48xb $rbp-48
+0x7fffffffe4e0:	0x10	0xe5	0xff	0xff	0xff	0x7f	0x00	0x00
+0x7fffffffe4e8:	0x00	0x00	0x00	0x00	0x20	0x00	0x00	0x00
+0x7fffffffe4f0:	0x49	0x20	0x61	0x6d	0x20	0x47	0x72	0x6f
+0x7fffffffe4f8:	0x6f	0x74	0x0a	0x00	0x21	0x43	0x00	0x00
+0x7fffffffe500:	0xec	0xe4	0xff	0xff	0xff	0x7f	0x00	0x00
+0x7fffffffe508:	0x00	0x00	0x00	0x00	0x01	0x43	0x00	0x00
+[36m(gdb) [0mq
+
+Script done on Sat 07 May 2016 12:44:29 AM PDT

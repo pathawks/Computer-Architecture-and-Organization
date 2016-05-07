@@ -1,0 +1,73 @@
+Script started on Sat 07 May 2016 12:31:00 AM PDT
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from GDB Explore...done.
+[36m(gdb) [0mlist 1,11
+1	int main(void) {
+2	    int x = 16;
+3	    int y = 3;
+4	
+5	    while (x > 0) {
+6	        x -= y;
+7	        ++y;
+8	    }
+9	
+10	    return 0;
+11	}
+[36m(gdb) [0mbreak 6
+Breakpoint 1 at 0x400501: file GDB Explore.c, line 6.
+[36m(gdb) [0mrun
+Starting program: /home/patrick.hawks1016/B13/GDB Explore 
+
+Breakpoint 1, main () at GDB Explore.c:6
+6	        x -= y;
+[36m(gdb) [0mdisplay x
+1: x = 16
+[36m(gdb) [0mdisplay y
+2: y = 3
+[36m(gdb) [0mstep
+7	        ++y;
+2: y = 3
+1: x = 13
+[36m(gdb) [0mstep
+5	    while (x > 0) {
+2: y = 4
+1: x = 13
+[36m(gdb) [0mstep
+
+Breakpoint 1, main () at GDB Explore.c:6
+6	        x -= y;
+2: y = 4
+1: x = 13
+[36m(gdb) [0mcontinue
+Continuing.
+
+Breakpoint 1, main () at GDB Explore.c:6
+6	        x -= y;
+2: y = 5
+1: x = 9
+[36m(gdb) [0mcontinue
+Continuing.
+
+Breakpoint 1, main () at GDB Explore.c:6
+6	        x -= y;
+2: y = 6
+1: x = 4
+[36m(gdb) [0mcontinue
+Continuing.
+[Inferior 1 (process 13923) exited normally]
+[36m(gdb) [0mq
+
+Script done on Sat 07 May 2016 12:31:52 AM PDT

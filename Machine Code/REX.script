@@ -1,0 +1,66 @@
+Script started on Sat 07 May 2016 10:24:55 AM PDT
+]0;patrick.hawks1016@bccompiler: ~/Handouts/Machine Codepatrick.hawks1016@bccompiler:~/Handouts/Machine Code$ more REX64.s 
+    push %rax
+    push %r8
+    push (%rax)
+    push (%r8)
+
+    pop  %rax
+    pop  %r8
+    pop  (%rax)
+    pop  (%r8)
+
+    movl %eax, %eax
+    movq %rax, %rax
+    movq %rax, %r8
+    movq %r8,  %rax
+    movq %r8,  %r8
+
+    movl %eax,  (%rax)
+    movl %eax,  (%r8)
+    movq %rax,  (%rax)
+    movq %rax,  (%r8)
+    movq %r8,   (%rax)
+    movq %r8,   (%r8)
+    movl (%rax), %eax
+    movl (%r8),  %eax
+[7m--More--(82%)[27m    movq (%rax), %rax
+    movq (%r8),  %rax
+    movq (%rax), %r8
+    movq (%r8),  %r8
+]0;patrick.hawks1016@bccompiler: ~/Handouts/Machine Codepatrick.hawks1016@bccompiler:~/Handouts/Machine Code$ as -al REX64.s |more
+GAS LISTING REX64.s 			page 1
+
+
+   1 0000 50       	    push %rax
+   2 0001 4150     	    push %r8
+   3 0003 FF30     	    push (%rax)
+   4 0005 41FF30   	    push (%r8)
+   5              	
+   6 0008 58       	    pop  %rax
+   7 0009 4158     	    pop  %r8
+   8 000b 8F00     	    pop  (%rax)
+   9 000d 418F00   	    pop  (%r8)
+  10              	
+  11 0010 89C0     	    movl %eax, %eax
+  12 0012 4889C0   	    movq %rax, %rax
+  13 0015 4989C0   	    movq %rax, %r8
+  14 0018 4C89C0   	    movq %r8,  %rax
+  15 001b 4D89C0   	    movq %r8,  %r8
+  16              	
+  17 001e 8900     	    movl %eax,  (%rax)
+  18 0020 418900   	    movl %eax,  (%r8)
+  19 0023 488900   	    movq %rax,  (%rax)
+  20 0026 498900   	    movq %rax,  (%r8)
+  21 0029 4C8900   	    movq %r8,   (%rax)
+[7m--More--[27m  22 002c 4D8900   	    movq %r8,   (%r8)
+  23 002f 8B00     	    movl (%rax), %eax
+  24 0031 418B00   	    movl (%r8),  %eax
+  25 0034 488B00   	    movq (%rax), %rax
+  26 0037 498B00   	    movq (%r8),  %rax
+  27 003a 4C8B00   	    movq (%rax), %r8
+  28 003d 4D8B00   	    movq (%r8),  %r8
+]0;patrick.hawks1016@bccompiler: ~/Handouts/Machine Codepatrick.hawks1016@bccompiler:~/Handouts/Machine Code$ exit
+exit
+
+Script done on Sat 07 May 2016 10:25:24 AM PDT

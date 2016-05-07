@@ -1,0 +1,54 @@
+Script started on Sat 07 May 2016 12:34:58 AM PDT
+GNU gdb (Ubuntu 7.7.1-0ubuntu5~14.04.2) 7.7.1
+Copyright (C) 2014 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<http://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+<http://www.gnu.org/software/gdb/documentation/>.
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from Assembly Explore...done.
+[36m(gdb) [0mlist 1,5
+1	main: .global main
+2	    pushq %rbp
+3	    movq  %rsp, %rbp
+4	    subq  $48, %rsp
+5	    movq  $0x0123456789ABCDEF, %rax
+[36m(gdb) [0mbreak *main
+Breakpoint 1 at 0x4004ed: file Assembly Explore.s, line 2.
+[36m(gdb) [0mdisplay $rsp
+[36m(gdb) [0mdisplay $rbp
+[36m(gdb) [0mrun
+Starting program: /home/patrick.hawks1016/B13/Assembly Explore 
+
+Breakpoint 1, main () at Assembly Explore.s:2
+2	    pushq %rbp
+2: $rbp = (void *) 0x0
+1: $rsp = (void *) 0x7fffffffe518
+[36m(gdb) [0mstep
+3	    movq  %rsp, %rbp
+2: $rbp = (void *) 0x0
+1: $rsp = (void *) 0x7fffffffe510
+[36m(gdb) [0mx/1xg $rsp
+0x7fffffffe510:	0x0000000000000000
+[36m(gdb) [0mbreak 5
+Breakpoint 2 at 0x4004f5: file Assembly Explore.s, line 5.
+[36m(gdb) [0mcontinue
+Continuing.
+
+Breakpoint 2, main () at Assembly Explore.s:5
+5	    movq  $0x0123456789ABCDEF, %rax
+2: $rbp = (void *) 0x7fffffffe510
+1: $rsp = (void *) 0x7fffffffe4e0
+[36m(gdb) [0mcontinue
+Continuing.
+[Inferior 1 (process 14586) exited with code 0357]
+[36m(gdb) [0mq
+
+Script done on Sat 07 May 2016 12:35:30 AM PDT
