@@ -25,7 +25,7 @@ Breakpoint 1 at 0x4004ed: file Assembly Explore.s, line 2.
 [36m(gdb) [0mdisplay $rsp
 [36m(gdb) [0mdisplay $rbp
 [36m(gdb) [0mrun
-Starting program: /home/patrick.hawks1016/B13/Assembly Explore 
+Starting program: ~/Assembly Explore                           
 
 Breakpoint 1, main () at Assembly Explore.s:2
 2	    pushq %rbp

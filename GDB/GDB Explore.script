@@ -29,7 +29,7 @@ Reading symbols from GDB Explore...done.
 [36m(gdb) [0mbreak 6
 Breakpoint 1 at 0x400501: file GDB Explore.c, line 6.
 [36m(gdb) [0mrun
-Starting program: /home/patrick.hawks1016/B13/GDB Explore 
+Starting program: ~/GDB Explore                           
 
 Breakpoint 1, main () at GDB Explore.c:6
 6	        x -= y;
